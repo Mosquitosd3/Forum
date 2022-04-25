@@ -23,13 +23,12 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <title>Accident</title>
+    <title>Forum Job4j</title>
 </head>
-<body class="bg-secondary">
+<body>
 <div class="container">
-    <br><h3><p class="bg-dark text-info text-center">Auto accident</p></h3>
-    <hr>
-    <div class="card text-white bg-dark">
+    <br>
+    <div class="card bg-light" style="background-color: #e3f2fd;">
         <article class="card-body mx-auto" style="max-width: 400px;">
             <h4 class="card-title mt-3 text-center">Create Account</h4>
             <form name='login' action="<c:url value='/reg'/>" method='POST'>

@@ -23,7 +23,7 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <title>Форум job4j</title>
+    <title>Topics job4j</title>
 </head>
 <jsp:include page="../navbar/navbar.jsp"/>
 <body>
@@ -32,7 +32,7 @@
 </div>
 <div class="container mt-3">
     <div class="row">
-        <h4><c:out value="${topic.name}"/></h4>
+        <h4><span>Topic: <c:out value="${topic.name}"/></span></h4>
     </div>
     <div class="row">
         <table id="mytable" class="table table-bordred table-striped">

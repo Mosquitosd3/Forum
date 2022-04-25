@@ -6,33 +6,17 @@ import java.util.Calendar;
 import java.util.Objects;
 
 @Entity
-@Table(name = "posts")
-public class Post {
+@Table(name = "comments")
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name;
     private String description;
     private Calendar calendar = Calendar.getInstance();
-    @ManyToOne()
-    private Topic topic;
-
-    @ManyToOne(cascade = {CascadeType.ALL, CascadeType.MERGE})
+    @ManyToOne(cascade = {CascadeType.ALL, CascadeType.MERGE}, fetch = FetchType.EAGER)
     private User user;
-
-    public static Post of(int id, String name, String description) {
-        Post post = new Post();
-        post.id = id;
-        post.name = name;
-        post.description = description;
-        return post;
-    }
-
-    public static Post of(String name) {
-        Post post = new Post();
-        post.name = name;
-        return post;
-    }
+    @ManyToOne(cascade = {CascadeType.ALL, CascadeType.MERGE})
+    private Post post;
 
     public int getId() {
         return id;
@@ -40,14 +24,6 @@ public class Post {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getDescription() {
@@ -62,21 +38,13 @@ public class Post {
         return calendar;
     }
 
-    public void setCalendar(Calendar calendar) {
-        this.calendar = calendar;
-    }
-
     public String created() {
         SimpleDateFormat format = new SimpleDateFormat("HH:mm dd-MM-yyyy ");
         return format.format(calendar.getTime());
     }
 
-    public Topic getTopic() {
-        return topic;
-    }
-
-    public void setTopic(Topic topic) {
-        this.topic = topic;
+    public void setCalendar(Calendar calendar) {
+        this.calendar = calendar;
     }
 
     public User getUser() {
@@ -87,6 +55,14 @@ public class Post {
         this.user = user;
     }
 
+    public Post getPost() {
+        return post;
+    }
+
+    public void setPost(Post post) {
+        this.post = post;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -95,15 +71,12 @@ public class Post {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Post post = (Post) o;
-        return id == post.id
-                && Objects.equals(name, post.name)
-                && Objects.equals(description, post.description)
-                && Objects.equals(calendar, post.calendar);
+        Comment comment = (Comment) o;
+        return id == comment.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description, calendar);
+        return Objects.hash(id);
     }
 }

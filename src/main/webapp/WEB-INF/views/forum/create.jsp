@@ -44,7 +44,7 @@
             </div>
             <div class="form-group">
                 <label for="topic">Topic</label>
-                <select name="topicId" class="custom-select" id="topic">
+                <select name="topic" class="custom-select" id="topic">
                     <c:forEach var="top" items="${topics}">
                         <option value="${top.id}">${top.name}</option>
                     </c:forEach>

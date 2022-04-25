@@ -21,18 +21,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <scriptForum Job4j src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <title>Login</title>
 </head>
-<body class="bg-secondary">
+<body>
 <br>
 <main class="login-form">
     <div class="cotainer">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card text-white bg-dark">
-                    <div class="card-header text-info">Auto accident</div>
+                <div class="card bg-light" style="background-color: #e3f2fd;">
+                    <div class="card-header text-info">Forum Job4j</div>
                     <div class="card-body">
                         <p align="center">Login</p>
                         <form action="<c:url value='/login'/>" method="post">

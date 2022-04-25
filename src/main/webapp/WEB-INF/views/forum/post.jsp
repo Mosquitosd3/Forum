@@ -23,27 +23,76 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <title>Форум job4j</title>
+    <title>Post job4j</title>
 </head>
 <jsp:include page="../navbar/navbar.jsp"/>
 <body>
 <br>
 <div class="container">
-    <div class="row">
+    <div class="form-group">
         <h4><c:out value="${post.name}"/></h4>
     </div>
     <hr>
     <form>
         <div class="form-group">
-            <div class="container">
-                <textarea class="form-control" id="formForDefinition1" rows="5" disabled readonly><c:out value="${post.description}"/></textarea>
-            </div>
+            <span>Nickname: <c:url value="${post.user.username}"/></span>
         </div>
         <div class="form-group">
-            <a href="<c:url value='/edit/${post.id}'/>" class="btn btn-info">Edit</a>
-            <a href="#" class="btn btn-danger">Delete</a>
+            <div class="container">
+                <textarea class="form-control" id="formForDefinition1" rows="3" disabled readonly><c:out value="${post.description}"/></textarea>
+            </div>
         </div>
+        <c:if test="${post.user.username == user.username}">
+            <div class="form-group">
+                <a href="<c:url value='/edit/${post.id}'/>" class="btn btn-info">Edit</a>
+                <a href="#" class="btn btn-danger">Delete</a>
+            </div>
+        </c:if>
     </form>
+    <hr>
+    <div class="form-group">
+        <form action="<c:url value='/addComment/${post.id}'/>" id="postComment" method="post">
+            <div class="form-group">
+                <label for="desc">Post comment</label>
+                <textarea class="form-control" id="desc" name="description" placeholder="Enter comment..."></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary mb-2">Add</button>
+            </div>
+        </form>
+    </div>
+    <hr>
+    <p>discussion</p>
+    <div class="form-group">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Username</th>
+                <th>Comment</th>
+                <th>Created</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${comments}" var="comment">
+                <tr>
+                    <td>
+                            ${comment.user.username}
+                    </td>
+                    <td>
+                            ${comment.description}
+                    </td>
+                    <td>
+                            ${comment.created()}
+                    </td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </div>
 </div>
 </body>
 </html>
+
+
+
+

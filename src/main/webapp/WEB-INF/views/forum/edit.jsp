@@ -23,7 +23,7 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <title>Forum job4j</title>
+    <title>Edit</title>
 </head>
 <jsp:include page="../navbar/navbar.jsp"/>
 <body>
@@ -48,7 +48,7 @@
             </div>
             <div class="form-group">
                 <label for="topic">Topic</label>
-                <select name="topicId" class="custom-select" id="topic">
+                <select name="topic" class="custom-select" id="topic">
                     <c:forEach var="top" items="${topics}">
                         <option value="${top.id}">${top.name}</option>
                     </c:forEach>
