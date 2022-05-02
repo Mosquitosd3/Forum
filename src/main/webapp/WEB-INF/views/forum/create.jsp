@@ -39,7 +39,7 @@
                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter title...">
             </div>
             <div class="form-group">
-                <label for="desc">Another label</label>
+                <label for="desc">Description</label>
                 <textarea class="form-control" id="desc" name="description" placeholder="Enter description..."></textarea>
             </div>
             <div class="form-group">

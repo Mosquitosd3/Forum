@@ -13,11 +13,14 @@ public class Post {
     private int id;
     private String name;
     private String description;
+    @Column(nullable = false)
     private Calendar calendar = Calendar.getInstance();
     @ManyToOne()
+    @JoinColumn(name = "topic_id")
     private Topic topic;
 
     @ManyToOne(cascade = {CascadeType.ALL, CascadeType.MERGE})
+    @JoinColumn(name = "user_id")
     private User user;
 
     public static Post of(int id, String name, String description) {
